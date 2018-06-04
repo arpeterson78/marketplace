@@ -1,0 +1,26 @@
+{
+  "name": "marketplace",
+  "version": "0.0.0",
+  "description": "marketplace",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpeterson78/marketplace.git"
+  },
+  "author": "MIT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpeterson78/marketplace/issues"
+  },
+  "homepage": "https://github.com/arpeterson78/marketplace#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7"
+  }
+}
