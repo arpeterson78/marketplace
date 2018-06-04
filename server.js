@@ -26,13 +26,19 @@ if (app.settings.env == 'development') {
     var connection = mysql.createConnection(process.env.JAWSDB_URL);
 }
 
-connection.connect()
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+    next();
+});
 
 app.get('/items', function (req, res) {
+    connection.connect()
     var query = "SELECT * FROM marketplace_items";
     // res.render('Hello');
     connection.query(query, function (err, result) {
-        console.log(JSON.stringify(result));
+        res.send(result);
     })
 })
 
