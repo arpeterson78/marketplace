@@ -34,12 +34,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/items', function (req, res) {
-    connection.connect()
     var query = "SELECT * FROM marketplace_items";
-    // res.render('Hello');
     connection.query(query, function (err, result) {
         res.send(result);
     })
+
 })
 
 
