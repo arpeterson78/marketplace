@@ -41,6 +41,23 @@ app.get('/items', function (req, res) {
 
 })
 
+app.post('/items/:item', function (req, res) {
+    var item = req.params.item;
+    console.log(item);
+
+    if (item === "all") {
+        var query = "SELECT * FROM marketplace_items";
+        connection.query(query, function (err, result) {
+            res.json(result);
+        })
+    } else {
+        var query = `SELECT * FROM marketplace_items WHERE product_name LIKE '%${item}%'`;
+        connection.query(query, function (err, result) {
+            res.json(result);
+        })
+    }
+})
+
 
 var port = process.env.PORT || 3001;
 app.listen(port, function () {
